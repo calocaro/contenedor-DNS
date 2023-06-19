@@ -63,6 +63,4 @@ La opción `restart` configura el comportamiento de reinicio del contenedor. En 
 
 ---
 
-Este archivo `README.md` proporciona una descripción de las opciones utilizadas en el archivo `docker-compose.yml` para configurar el contenedor BIND9. Puedes utilizar esta información como referencia al trabajar con el contenedor DNS y modificar la configuración según tus necesidades.
-
-Si tienes alguna pregunta adicional o necesitas más ayuda, ¡no dudes en preguntar!
+Este archivo `README.md` proporciona una descripción de las opciones utilizadas en el archivo `docker-compose.yml` para configurar el contenedor BIND9.
