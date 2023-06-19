@@ -2,11 +2,26 @@ version: '3'
 
 services:
   bind9:
-    image: bind
-    volumes:
-      - ./data:/etc/bind
-      - ./logs:/var/log/bind
+    image: internetsystemsconsortium/bind9:9.16
+    container_name: asir_bind9
     ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-    restart: always
+      - 5300:53/udp
+      - 5300:53/tcp
+    networks:
+      bind9_subnet:
+        ipv4_address: 10.1.0.254
+    volumes:
+      - /home/calocaro/DNS/conf:/etc/bind
+      - /home/calocaro/DNS/zonas:/var/lib/bind
+  asir_cliente:
+    container_name: asir_clliente
+    image: alpine
+    networks:
+      - bind9_subnet
+    stdin_open: true 
+    tty: true
+    dns:
+      - 10.1.0.254 
+networks:
+  bind9_subnet:
+    external: true
